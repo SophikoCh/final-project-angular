@@ -1,0 +1,44 @@
+<section>
+    <div class="navigation">
+        <div class="logo" routerLink="/mainPage"></div>
+        <ul>
+            <li class="post">Posts</li>
+            <li>Albums</li>
+            <li>Todos</li>
+        </ul>
+    </div>
+
+    <div class="posts-container">
+        <div class="add-post">
+            <button (click)="toggleContainer()" class="add-button"> Add Post</button>
+            <div *ngIf="showContainer" class="input-cont">
+                <div class="new-post">
+                    <label>Post Author </label>
+                    <input type="text" [(ngModel)]="newPostAuthor">
+                </div>
+                <div class="new-post">
+                    <label>Title </label>
+                    <input type="text" [(ngModel)]="newPostTitle">
+                </div>
+                <div class="new-post">
+                    <label>Body </label>
+                    <input type="text" [(ngModel)]="newPostBody">
+                </div>
+                <button type="button" (click)="addNewPost()" class="subimt-button">Add</button>
+            </div>
+        </div>
+        <table *ngFor="let user of users">
+            <tr>
+                <th>POST'S USER</th>
+                <th>TITLE</th>
+                <th>BODY</th>
+            </tr>
+            <tr *ngFor="let post of posts">
+                <td>{{user.name}}</td>
+                <td>{{post.title}}</td>
+                <td>{{post.body}}</td>
+            </tr>
+        </table>
+
+    </div>
+</section>
