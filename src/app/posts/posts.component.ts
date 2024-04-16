@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Post } from '../interfaces/posts.interface';
 import { ApiService } from '../api.service';
 import { User } from '../interfaces/users.interface';
+
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
@@ -32,24 +33,36 @@ export class PostsComponent implements OnInit {
     });
   }
 
+  getUserById(userId: number): string {
+    if (this.users && this.users.length > 0) {
+      const user = this.users.find((user) => user.id === userId);
+      return user ? user.name || '' : '';
+    }
+    return '';
+  }
+  
+
   addNewPost() {
-    this.posts = [
-      { body: this.newPostBody,
-        title: this.newPostTitle,
-        userId: 20,
-        id: 102,
-      },
-      ...this.posts
-    ];
-    this.users= [
-      {name: this.newPostAuthor,
-        id: 102,
-        username: 'string',
-        email: 'string',
-      },
-      ...this.users
-    ];
-  };
+    const newPost: Post = {
+      body: this.newPostBody,
+      title: this.newPostTitle,
+      userId: this.users.length + 1,
+      id: this.posts.length + 1,
+    };
+    this.posts = [newPost,...this.posts];
+    const newAuthor: User = {
+      name: this.newPostAuthor,
+      id: this.users.length + 1,
+      username: this.newPostAuthor,
+    };
+
+    this.users = [newAuthor, ...this.users];
+
+    this.newPostTitle = '';
+  this.newPostBody = '';
+  this.newPostAuthor = '';
+  }
+
 
   toggleContainer() {
     this.showContainer =!this.showContainer;

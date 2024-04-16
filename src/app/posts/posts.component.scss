@@ -12,14 +12,11 @@
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
 }
 
-.logo {
-    background: radial-gradient(ellipse at left bottom, rgba(255, 255, 255, 1) 0%, #c90000 77%);
-    border: none;
-    border-radius: 40px;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
+.logo img {
+ width: 50px;   
+ height: 6vh;
 }
+
 
 .logo:hover {
     transform: scale(1.1);
@@ -33,6 +30,7 @@ li {
     text-align: center;
 }
 
+
 ul {
     display: flex;
     gap: 50px;
@@ -41,21 +39,11 @@ ul {
 }
 
 li:hover {
-    background-color: #c90000;
-    border-radius: 5px;
-    color: white;
     transform: scale(1.1);
-    height: 4vh;
-    width: 70px;
+    
 }
 
-.post {
-    background-color: #c90000;
-    width: 80px;
-    height: 4vh;
-    border-radius: 5px;
-    color: white;
-}
+
 
 
 .posts-container {
@@ -175,3 +163,4 @@ label {
 .subimt-button:hover {
     transform: scale(1.1);
 }
+

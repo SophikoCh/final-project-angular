@@ -11,15 +11,10 @@
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
 }
 
-.logo {
-    background: radial-gradient(ellipse at left bottom, rgba(255,255,255,1) 0%, #c90000 77%);
-    border: none;
-    border-radius: 40px;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
+.logo  img{
+    width: 50px;
+    height: 6vh;
 }
-
 .logo:hover {
     transform: scale(1.1);
 }
@@ -39,13 +34,8 @@ li {
     text-align: center;
 }
 li:hover {
-    background-color: #c90000;
-    border-radius: 5px;
-    color: white;
     transform: scale(1.1);
-    transition: 0.5s;
-    height: 4vh;
-    width: 70px;
+
 }
 li:active {
     background-color: #c90000;
@@ -148,4 +138,10 @@ button {
 
 button:hover {
     transform: scale(1.1);
+}
+
+.active {
+    background-color: aqua;
+    width: fit-content;
+    height: fit-content;
 }

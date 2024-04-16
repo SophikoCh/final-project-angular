@@ -1,10 +1,10 @@
 <section>
     <div class="navigation">
-        <div class="logo" routerLink="/mainPage"></div>
+        <div class="logo" routerLink="/mainPage" ><img src="../../assets/images/logo.png" alt=""></div>
         <ul>
-            <li class="post">Posts</li>
-            <li>Albums</li>
-            <li>Todos</li>
+            <li routerLink="/posts" routerLinkActive="active"> Posts</li>
+            <li routerLink="/albums" routerLinkActive="active">Albums</li>
+            <li routerLink="/todos" routerLinkActive="active">Todos</li>
         </ul>
     </div>
 
@@ -13,28 +13,28 @@
             <button (click)="toggleContainer()" class="add-button"> Add Post</button>
             <div *ngIf="showContainer" class="input-cont">
                 <div class="new-post">
-                    <label>Post Author </label>
-                    <input type="text" [(ngModel)]="newPostAuthor">
+                    <label for="name" >Post Author </label>
+                    <input id="name" name="name" type="text" [(ngModel)]="newPostAuthor">
                 </div>
                 <div class="new-post">
-                    <label>Title </label>
-                    <input type="text" [(ngModel)]="newPostTitle">
+                    <label for="title">Title </label>
+                    <input id="title" name="titile" type="text" [(ngModel)]="newPostTitle">
                 </div>
                 <div class="new-post">
-                    <label>Body </label>
-                    <input type="text" [(ngModel)]="newPostBody">
+                    <label for="body">Body </label>
+                    <input id="body" name="body" type="text" [(ngModel)]="newPostBody">
                 </div>
                 <button type="button" (click)="addNewPost()" class="subimt-button">Add</button>
             </div>
         </div>
-        <table *ngFor="let user of users">
+        <table>
             <tr>
                 <th>POST'S USER</th>
                 <th>TITLE</th>
                 <th>BODY</th>
             </tr>
             <tr *ngFor="let post of posts">
-                <td>{{user.name}}</td>
+                <td>{{ getUserById(post.userId) }}</td>
                 <td>{{post.title}}</td>
                 <td>{{post.body}}</td>
             </tr>
