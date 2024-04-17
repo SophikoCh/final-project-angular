@@ -9,12 +9,18 @@ import { PostsComponent } from './posts/posts.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { EditPostComponent } from './posts/edit-post/edit-post.component';
+import { AlbumsComponent } from './albums/albums.component';
+import { TodosComponent } from './todos/todos.component';
+import { AlbumsDetailsComponent } from './albums/albums-details/albums-details.component';
 @NgModule({
   declarations: [
     AppComponent,
     MainPageComponent,
     PostsComponent,
     EditPostComponent,
+    AlbumsComponent,
+    TodosComponent,
+    AlbumsDetailsComponent,
 
   ],
   imports: [

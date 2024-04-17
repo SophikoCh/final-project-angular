@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../interfaces/posts.interface';
-import { ApiService } from '../api.service';
+import { ApiService } from '../services/api.service';
 import { User } from '../interfaces/users.interface';
 import { ActivatedRoute } from '@angular/router';
 
@@ -28,7 +28,7 @@ export class PostsComponent implements OnInit {
 
   constructor(
     private apiService: ApiService,
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.apiService.getPosts().subscribe((posts) => {
