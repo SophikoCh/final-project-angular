@@ -47,7 +47,6 @@ li:hover {
 
 
 .posts-container {
-    background-image: url(../../assets/images/white-background.png);
     background-repeat: repeat;
 }
 
@@ -69,6 +68,7 @@ td,
 th {
     padding: 15px 30px;
     width: 33%;
+    cursor: pointer;
 }
 
 th {

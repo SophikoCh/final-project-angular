@@ -27,18 +27,20 @@
                 <button type="button" (click)="addNewPost()" class="subimt-button">Add</button>
             </div>
         </div>
-        <table>
+        <table  class="posts-table">
             <tr>
                 <th>POST'S USER</th>
                 <th>TITLE</th>
                 <th>BODY</th>
             </tr>
-            <tr *ngFor="let post of posts">
+            <tr [routerLink]="['/posts', post.id ]" *ngFor="let post of posts">
                 <td>{{ getUserById(post.userId) }}</td>
                 <td>{{post.title}}</td>
                 <td>{{post.body}}</td>
+                
             </tr>
         </table>
 
     </div>
 </section>
+<router-outlet></router-outlet>

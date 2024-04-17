@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Post } from '../interfaces/posts.interface';
 import { ApiService } from '../api.service';
 import { User } from '../interfaces/users.interface';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-posts',
@@ -10,19 +11,24 @@ import { User } from '../interfaces/users.interface';
 })
 export class PostsComponent implements OnInit {
 
-  posts!: Post[];
-
-  users!: User[];
+  posts: Post[] = [];
+  users: User[] = [];
 
   newPostTitle = '';
 
-  newPostBody = ''; 
+  newPostBody = '';
 
   newPostAuthor = '';
 
-  showContainer : boolean = false;
+  showContainer: boolean = false;
+  Post: any;
 
-  constructor(private apiService: ApiService) { }
+
+
+
+  constructor(
+    private apiService: ApiService,
+  ) {}
 
   ngOnInit(): void {
     this.apiService.getPosts().subscribe((posts) => {
@@ -31,6 +37,7 @@ export class PostsComponent implements OnInit {
     this.apiService.getUsers().subscribe((users) => {
       this.users = users;
     });
+
   }
 
   getUserById(userId: number): string {
@@ -40,7 +47,8 @@ export class PostsComponent implements OnInit {
     }
     return '';
   }
-  
+
+
 
   addNewPost() {
     const newPost: Post = {
@@ -49,7 +57,7 @@ export class PostsComponent implements OnInit {
       userId: this.users.length + 1,
       id: this.posts.length + 1,
     };
-    this.posts = [newPost,...this.posts];
+    this.posts = [newPost, ...this.posts];
     const newAuthor: User = {
       name: this.newPostAuthor,
       id: this.users.length + 1,
@@ -59,13 +67,13 @@ export class PostsComponent implements OnInit {
     this.users = [newAuthor, ...this.users];
 
     this.newPostTitle = '';
-  this.newPostBody = '';
-  this.newPostAuthor = '';
+    this.newPostBody = '';
+    this.newPostAuthor = '';
   }
 
 
   toggleContainer() {
-    this.showContainer =!this.showContainer;
+    this.showContainer = !this.showContainer;
   }
-  
+
 }

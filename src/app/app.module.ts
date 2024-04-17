@@ -8,12 +8,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PostsComponent } from './posts/posts.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { EditPostComponent } from './posts/edit-post/edit-post.component';
 @NgModule({
   declarations: [
     AppComponent,
     MainPageComponent,
     PostsComponent,
-    
+    EditPostComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -21,7 +23,9 @@ import { FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })
