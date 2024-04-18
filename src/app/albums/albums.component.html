@@ -7,18 +7,18 @@
             <li routerLink="/todos" routerLinkActive="active">Todos</li>
         </ul>
     </div>
-
-    <table  class="albums-table">
-        <tr>
-            <th>ALBUM'S USER</th>
-            <th>TITLE</th>
-            <th>NUMBER OF PHOTOS</th>
-        </tr>
-        <tr [routerLink]="['/albums', album.id]" *ngFor="let album of albums" >
-            <td>{{ getUserName(album.userId) }}</td>
-            <td>{{album.title}}</td>
-            <td>{{ loadPhotosCount(album.id)}}</td>
-            
-        </tr>
-    </table>
+    <div class="for-back">
+        <table class="albums-table">
+            <tr>
+                <th>ALBUM'S USER</th>
+                <th>TITLE</th>
+                <th>NUMBER OF PHOTOS</th>
+            </tr>
+            <tr [routerLink]="['/albums', album.id]" *ngFor="let album of albums">
+                <td>{{ getUserName(album.userId) }}</td>
+                <td>{{album.title}}</td>
+                <td>{{ loadPhotosCount(album.id)}}</td>
+            </tr>
+        </table>
+    </div>
 </section>

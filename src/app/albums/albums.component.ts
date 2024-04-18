@@ -6,7 +6,7 @@ import { ApiService } from '../services/api.service';
 import { PhotosService } from '../services/photos.service';
 import { Photo } from '../interfaces/photos.interface';
 import { filter } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-albums',
@@ -18,12 +18,11 @@ export class AlbumsComponent implements OnInit {
   albums: Album[]=[];
   users: User[] = [];
   photos: Photo[] = [];
-  id!: number;
 
   constructor(private albumsService: AlbumsService,
     private apiService: ApiService,
     private photosService: PhotosService,
-    private route: ActivatedRoute,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -37,12 +36,14 @@ export class AlbumsComponent implements OnInit {
     this.photosService.getPhotos().subscribe(photos => {
       this.photos = photos;
     });
-
-    this.id = +(this.route.snapshot.paramMap.get('id')|| 0);
+    
   }
   getUserName(userId: number): string {
     const user = this.users.find(user => user.id === userId);
     return user ? user.name : 'Unknown';
+  }
+  navigateToalbumDetails(albumId: number) {
+    this.router.navigate(['/albums', albumId]);
   }
 
   loadPhotosCount(albumId: number): number {

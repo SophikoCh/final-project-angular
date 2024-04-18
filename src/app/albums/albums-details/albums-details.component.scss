@@ -1,0 +1,38 @@
+.imgs-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    justify-content: space-around;
+    align-items: center;
+}
+.image-box img {
+    border-radius: 15px;
+    
+}
+
+.image-box{
+    margin: 3%;
+}
+
+section {
+    background-image: url(../../../assets/images/compos-background.png);
+    background-repeat: repeat;
+}
+
+.title{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    font-size: large;
+    font-weight: 500;
+}
+
+span {
+    color:  #58befd;
+    font-size: larger;
+    font-weight: bold;
+}
+

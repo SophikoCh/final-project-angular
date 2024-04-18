@@ -10,29 +10,71 @@
     height: 10vh;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
 }
-
-.logo  img{
+.for-back {
+    background-image: url(../../assets/images/compos-background.png);
+    background-repeat:repeat;
+}
+.logo img {
     width: 50px;
     height: 6vh;
 }
+
 .logo:hover {
     transform: scale(1.1);
 }
 
-ul {
+.menu {
     display: flex;
     gap: 50px;
     justify-content: space-between;
     list-style: none;
     cursor: pointer;
 }
-li {
+
+.menu-list {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
-li:hover {
+
+.menu-list:hover {
     transform: scale(1.1);
+}
+
+.todos {
+    width: 80%;
+    height: 10vh;
+    box-shadow: 1px 10px 15px rgba(0, 0, 0, 0.4);
+    margin: 15px auto;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+
+.todos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todo-list {
+    list-style: none;
+    font-size: medium;
+    font-weight: 600;
+}
+
+span {
+    color:  #58befd;
+    font-size: medium;
+    font-weight: bold;
+}
+.true-color {
+    color: green;
+    
+}
+
+.false-color {
+    color: red;
 }

@@ -1,10 +1,17 @@
 <section>
     <div class="navigation">
         <div class="logo" routerLink="/mainPage"><img src="../../assets/images/logo.png" alt=""></div>
-        <ul>
-            <li routerLink="/posts" routerLinkActive="active"> Posts</li>
-            <li routerLink="/albums" routerLinkActive="active"> Albums</li>
-            <li routerLink="/todos" routerLinkActive="active">Todos</li>
+        <ul class="menu">
+            <li class="menu-list" routerLink="/posts" routerLinkActive="active"> Posts</li>
+            <li class="menu-list" routerLink="/albums" routerLinkActive="active"> Albums</li>
+            <li class="menu-list" routerLink="/todos" routerLinkActive="active">Todos</li>
+        </ul>
+    </div>
+    <div class="for-back">
+        <ul class="todos" *ngFor="let todo of todos">
+            <li class="todo-list"><span>Title:</span> {{todo.title}} </li>
+            <li class="todo-list" [ngClass]="{'true-color': todo.completed, 'false-color': !todo.completed}">
+                <span>Completion:</span>{{todo.completed}} </li>
         </ul>
     </div>
 </section>
