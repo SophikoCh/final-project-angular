@@ -13,7 +13,7 @@ export class PostsComponent implements OnInit {
 
   posts: Post[] = [];
   users: User[] = [];
-  comments: Comment[] = [];
+ 
 
   newPostTitle = '';
 
@@ -23,7 +23,6 @@ export class PostsComponent implements OnInit {
 
   showContainer: boolean = false;
 
-  Post: any;
 
   constructor(
     private apiService: ApiService,

@@ -1,11 +1,42 @@
-<div *ngIf="post">
-    <h1>title:</h1>
-    <p>{{ post.title }}</p>
-    <h1>Body:</h1>
-    <p>{{ post.body }}</p>
-    <button class="edit"></button>
-</div>
-<div class="comments">
+<section>
+    <div *ngIf="post">
+        <h2>Edit Post</h2>
+        <div>
+            <label for="title">Title:</label>
+            <input type="text" [(ngModel)]="post.title" id="title">
+        </div>
+        <div>
+            <label for="body">Body:</label>
+            <textarea [(ngModel)]="post.body" id="body"></textarea>
+        </div>
+        <button (click)="updatePost()">Update</button>
+    </div>
 
-</div>
-  
+    <div class="comments">
+        <ul>
+            <ng-container *ngIf="post && post.comments">
+                <li *ngFor="let comment of post.comments">
+                    <strong>{{ comment.name }}</strong> ({{ comment.email }})
+                    <p>{{ comment.body }}</p>
+                </li>
+            </ng-container>
+        </ul>
+        <div class="add-comment">
+            <h3>Add Comment</h3>
+            <div>
+                <label for="comment-name">Name:</label>
+                <input type="text" [(ngModel)]="newComment.name" id="comment-name">
+            </div>
+            <div>
+                <label for="comment-email">Email:</label>
+                <input type="email" [(ngModel)]="newComment.email" id="comment-email">
+            </div>
+            <div>
+                <label for="comment-body">Comment:</label>
+                <textarea [(ngModel)]="newComment.body" id="comment-body"></textarea>
+            </div>
+            <button (click)="addComment()">Add Comment</button>
+        </div>
+
+    </div>
+</section>

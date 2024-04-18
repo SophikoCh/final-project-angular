@@ -12,8 +12,6 @@ export class EditService {
   constructor(
     private http: HttpClient) { }
 
-    getComments(): Observable<any[]> {
-      return this.http.get<any[]>('https://jsonplaceholder.typicode.com/posts/1/comments');
-    }
+    
 }
 

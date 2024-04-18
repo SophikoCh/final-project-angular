@@ -29,7 +29,6 @@ import { AlbumsDetailsComponent } from './albums/albums-details/albums-details.c
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-
   ],
 
   providers: [],
