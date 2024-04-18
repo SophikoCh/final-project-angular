@@ -7,6 +7,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
+  find(id: number) {
+    throw new Error('Method not implemented.');
+  }
+  private apiUrl = 'https://jsonplaceholder.typicode.com';
+
 
   constructor(private http: HttpClient) { }
 
@@ -16,4 +21,13 @@ export class ApiService {
   getUsers(): Observable<any[]> {
     return this.http.get<any[]>('https://jsonplaceholder.typicode.com/users');
   };
+
+  getPostsAndUsers(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/posts?_expand=user`);
+  }
+
+  getPostById(postId: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/posts/${postId}`);
+  }
+
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-edit-post',
@@ -8,13 +9,27 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EditPostComponent implements OnInit {
   id!: number;
+  post: any;
 
   constructor(
     private route: ActivatedRoute,
+    private apiService: ApiService,
   ) { }
 
   ngOnInit(): void {
-    this.id = +(this.route.snapshot.params['postId'] || 0);
+    const postId = +(this.route.snapshot.paramMap.get('id') || 0);  // Convert to number
+    this.apiService.getPostById(postId).subscribe(
+      data => {
+        this.post = data;
+      },
+      error => {
+        if (error.status === 404) {
+          console.error('Post not found:', error);
+          // Handle the 404 error, e.g., redirect or show a message to the user
+        } else {
+          console.error('Error fetching post:', error);
+        }
+      }
+    );
   }
-
 }

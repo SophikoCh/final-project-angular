@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Post } from '../interfaces/posts.interface';
 import { ApiService } from '../services/api.service';
 import { User } from '../interfaces/users.interface';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-posts',
@@ -13,6 +13,7 @@ export class PostsComponent implements OnInit {
 
   posts: Post[] = [];
   users: User[] = [];
+  comments: Comment[] = [];
 
   newPostTitle = '';
 
@@ -21,13 +22,12 @@ export class PostsComponent implements OnInit {
   newPostAuthor = '';
 
   showContainer: boolean = false;
+
   Post: any;
-
-
-
 
   constructor(
     private apiService: ApiService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -37,7 +37,10 @@ export class PostsComponent implements OnInit {
     this.apiService.getUsers().subscribe((users) => {
       this.users = users;
     });
-
+    this.apiService.getPostsAndUsers().subscribe(
+      data => {
+        this.posts = data;
+      });
   }
 
   getUserById(userId: number): string {
@@ -48,6 +51,9 @@ export class PostsComponent implements OnInit {
     return '';
   }
 
+  navigateToComments(postId: number) {
+    this.router.navigate(['/posts', postId]);
+  }
 
 
   addNewPost() {

@@ -13,7 +13,7 @@ export class AlbumsDetailsComponent implements OnInit {
 
   constructor(
     private albumsService: AlbumsService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) {}
 
   ngOnInit(): void {
