@@ -33,11 +33,10 @@
                 <th>TITLE</th>
                 <th>BODY</th>
             </tr>
-            <tr [routerLink]="['/posts', post.id ]" *ngFor="let post of posts">
+            <tr class="for-style" [routerLink]="['/posts', post.id ]" *ngFor="let post of posts">
                 <td>{{ getUserById(post.userId) }}</td>
                 <td>{{post.title}}</td>
                 <td>{{post.body}}</td>
-                
             </tr>
         </table>
 

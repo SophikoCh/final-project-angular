@@ -9,14 +9,23 @@
     font-family: roboto;
     height: 10vh;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; 
+    background-color: white;
 }
-.for-back {
+section {
     background-image: url(../../assets/images/compos-background.png);
     background-repeat:repeat;
 }
+.for-back{
+    margin-top: 65px;
+}
 .logo img {
     width: 50px;
-    height: 6vh;
+    height: 50px;
 }
 
 .logo:hover {
@@ -44,20 +53,17 @@
 }
 
 .todos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 80%;
     height: 10vh;
     box-shadow: 1px 10px 15px rgba(0, 0, 0, 0.4);
     margin: 15px auto;
-    border-radius: 5px;
+    border-radius: 7px;
     padding: 15px;
 }
 
-
-.todos {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
 .todo-list {
     list-style: none;
@@ -73,8 +79,15 @@ span {
 .true-color {
     color: green;
     
+    
 }
 
 .false-color {
     color: red;
+}
+
+.todos:hover{
+    transform: scale(1.1);
+    background-color: #b9c4ff;
+    cursor: pointer;
 }

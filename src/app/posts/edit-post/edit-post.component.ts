@@ -65,7 +65,7 @@ export class EditPostComponent implements OnInit {
     );
   }
   addComment(): void {
-    if (this.post && this.newComment.name && this.newComment.email && this.newComment.body) {
+    if (this.post && this.newComment.name && this.newComment.body) {
       const newComment: Comment = {
         postId: this.post.id,
         name: this.newComment.name,

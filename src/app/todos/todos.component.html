@@ -11,7 +11,7 @@
         <ul class="todos" *ngFor="let todo of todos">
             <li class="todo-list"><span>Title:</span> {{todo.title}} </li>
             <li class="todo-list" [ngClass]="{'true-color': todo.completed, 'false-color': !todo.completed}">
-                <span>Completion:</span>{{todo.completed}} </li>
+                <span>Completion: </span>{{todo.completed ? '&#10004;' : '&#10006;'}} </li>
         </ul>
     </div>
 </section>

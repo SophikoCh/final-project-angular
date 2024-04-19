@@ -14,7 +14,7 @@
                 <th>TITLE</th>
                 <th>NUMBER OF PHOTOS</th>
             </tr>
-            <tr [routerLink]="['/albums', album.id]" *ngFor="let album of albums">
+            <tr class="for-style" [routerLink]="['/albums', album.id]" *ngFor="let album of albums">
                 <td>{{ getUserName(album.userId) }}</td>
                 <td>{{album.title}}</td>
                 <td>{{ loadPhotosCount(album.id)}}</td>
